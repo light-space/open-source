@@ -4,8 +4,7 @@ Fable plans and reviews. Opus 4.6 builds. You decide at three gates.
 
 | | |
 | --- | --- |
-| Author | [Cosmin Aftanase](https://github.com/cosmin220304) |
-| Maintainer of this copy | [Light](https://github.com/light-space) |
+| Maintainer | [Light](https://github.com/light-space) |
 | Status | Experimental |
 | Language | Python / Markdown |
 | License | [MIT](LICENSE) |

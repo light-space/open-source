@@ -1,7 +1,7 @@
 # Gauntlet
 
 Gauntlet is an independent Claude Code plugin copied from
-`cosmin220304/gauntlet`. Its author is Cosmin Aftanase. Read the README's origin and
+`cosmin220304/gauntlet`. Read the README's origin and
 licensing status before changing attribution or distributing a modified version.
 
 ## Boundaries
