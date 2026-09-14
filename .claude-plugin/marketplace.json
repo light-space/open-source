@@ -16,7 +16,8 @@
       "author": {
         "name": "Cosmin Aftanase"
       },
-      "repository": "https://github.com/light-space/open-source"
+      "repository": "https://github.com/light-space/open-source",
+      "license": "MIT"
     },
     {
       "name": "light-mcp",

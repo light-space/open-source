@@ -8,7 +8,7 @@ Fable plans and reviews. Opus 4.6 builds. You decide at three gates.
 | Maintainer of this copy | [Light](https://github.com/light-space) |
 | Status | Experimental |
 | Language | Python / Markdown |
-| License | [Not specified upstream](LICENSE) |
+| License | [MIT](LICENSE) |
 
 `/gauntlet:run <spec or ticket>` turns Fable into the product owner for one feature in the current worktree. It writes a brief that says what and why, splits the work only where a second engineer could take a part without stepping on the first, and spawns one `gauntlet-builder` per slice. Builders run on `claude-opus-4-6`. They explore the code, choose their own files, names and steps, write their own tests, and never run them. Fable never tells a builder how to build. A hook stops any builder that crosses 130k tokens of context and makes it hand off. Fable checks every diff for business sense, runs the tests itself, and ships through `/gauntlet:ship-it`.
 
@@ -115,6 +115,5 @@ Claude Code's normal permission handling.
 The upstream repository was archived on 2026-09-14. This directory is now the
 canonical source of Gauntlet; further changes land here, not upstream.
 
-Upstream did not include a license file or a license declaration at this commit.
-The [licensing status file](LICENSE) records that fact; this copy does not assign a
-new license. Light MCP's MIT license applies to Light MCP only.
+Licensed under the [MIT License](LICENSE), copyright Light. The upstream repository
+carried no license; the author assigned this one on import.
