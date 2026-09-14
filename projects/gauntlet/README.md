@@ -106,11 +106,14 @@ validate the repository-root marketplace. Keep this project's runtime files here
 ## Origin and license
 
 Copied from [cosmin220304/gauntlet](https://github.com/cosmin220304/gauntlet) at
-commit [`1f5c5e9`](https://github.com/cosmin220304/gauntlet/commit/1f5c5e99b4e6fd6825a91f4cdeb9440387837ba4),
-version `0.1.26`. The plugin manifests, agents, commands, hooks, skills, and output
+commit [`63355be`](https://github.com/cosmin220304/gauntlet/commit/63355beba70795e1d2f66e8293659f1fb82de173),
+version `0.1.27`. The plugin manifests, agents, commands, hooks, skills, and output
 style are copied unchanged. This README adapts installation paths and adds project
 metadata, development instructions, and attribution. The local example uses
 Claude Code's normal permission handling.
+
+The upstream repository was archived on 2026-09-14. This directory is now the
+canonical source of Gauntlet; further changes land here, not upstream.
 
 Upstream did not include a license file or a license declaration at this commit.
 The [licensing status file](LICENSE) records that fact; this copy does not assign a
