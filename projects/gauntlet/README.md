@@ -1,6 +1,6 @@
 # Gauntlet
 
-Fable plans and reviews. Opus 4.6 builds. You decide at three gates.
+Fable plans and reviews. Opus 5.5 builds. You decide at three gates.
 
 | | |
 | --- | --- |
@@ -9,7 +9,7 @@ Fable plans and reviews. Opus 4.6 builds. You decide at three gates.
 | Language | Python / Markdown |
 | License | [MIT](LICENSE) |
 
-`/gauntlet:run <spec or ticket>` turns Fable into the product owner for one feature in the current worktree. It writes a brief that says what and why, splits the work only where a second engineer could take a part without stepping on the first, and spawns one `gauntlet-builder` per slice. Builders run on `claude-opus-4-6`. They explore the code, choose their own files, names and steps, write their own tests, and never run them. Fable never tells a builder how to build. A hook stops any builder that crosses 130k tokens of context and makes it hand off. Fable checks every diff for business sense, runs the tests itself, and ships through `/gauntlet:ship-it`.
+`/gauntlet:run <spec or ticket>` turns Fable into the product owner for one feature in the current worktree. It writes a brief that says what and why, splits the work only where a second engineer could take a part without stepping on the first, and spawns one `gauntlet-builder` per slice. Builders run on `claude-opus-5-5`. They explore the code, choose their own files, names and steps, write their own tests, and never run them. Fable never tells a builder how to build. A hook stops any builder that crosses 300k tokens of context and makes it hand off. Fable checks every diff for business sense, runs the tests itself, and ships through `/gauntlet:ship-it`.
 
 The run stops to ask you three times:
 
@@ -21,7 +21,7 @@ A monitor at http://localhost:7777 shows every session and builder on this machi
 
 ## Install
 
-You need Claude Code with access to `claude-opus-4-6`, `python3`, `git`, and `gh` for shipping.
+You need Claude Code with access to `claude-opus-5-5`, `python3`, `git`, and `gh` for shipping.
 
 Inside Claude Code:
 
@@ -51,13 +51,24 @@ independently. Choose one installation source so the plugin is not enabled twice
 
 Answer the three gates. Fixes you ask for at gate 2 become new builder slices and come back to the same gate.
 
+## Rules it learns
+
+Correct Gauntlet once ("do not do X, do Y") and it keeps the lesson for later runs. Fable saves the rule, tells you where in one line, and removes it if you say undo.
+
+- Your personal taste goes in `~/.claude/gauntlet/rules.md` and applies in every repo.
+- Facts about one project go in a `## Gauntlet rules` section of that project's `AGENTS.md`, as an uncommitted edit.
+
+Every run reads both before gate 1. Fable plans with them and passes the related rules, with their reasons, to each builder. Edit either file by hand at any time.
+
+If one of your personal rules clashes with the repo's rules or patterns, the repo wins. Builders follow the repo, and Fable asks you at the next gate: update the repo's rules, or change your rule?
+
 The first run starts the monitor if nothing is listening on port 7777 and registers the session with its checkout; open http://localhost:7777. It shows the latest registered run of each checkout, grouped by checkout, and diffs that checkout, so a run started on main that moves into a worktree shows that worktree. It reads local transcripts under `~/.claude/projects` and sends nothing anywhere. The Changes tab loads its diff viewer from a CDN, so it needs internet access in the browser.
 
 If the monitor is not up, or you want this session diffed against another checkout, run `/gauntlet:monitor` or `/gauntlet:monitor /path/to/worktree`. It starts the monitor if needed, registers the session, and opens the page.
 
 ## Knobs
 
-- `GAUNTLET_CONTEXT_CAP` (default `130000`): the builder context cap, read by the hook and the monitor.
+- `GAUNTLET_CONTEXT_CAP` (default `300000`): the builder context cap, read by the hook and the monitor.
 - `agents/gauntlet-builder.md`: the builder's model, turn limit, and working rules.
 - `commands/ship-it.md`: how a run becomes a PR. Edit the commit and PR conventions there.
 
